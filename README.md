@@ -3,4 +3,4 @@
 
 > some automation scripts to streamline the tedious tasks
 
-> to be added more in future
+> to be added more in the future
