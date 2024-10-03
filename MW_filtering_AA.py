@@ -27,9 +27,19 @@ def filter_aa_seqs_by_mw(sequences, min_wt, max_wt):
       weight_aa = molecular_weight(sequence.seq, seq_type='protein')
 
       if min_wt <= weight_aa <= max_wt:
-        print(">", sequence.id,"MW:", round(weight_aa/1000, 2), "KDa")
-        print("Seq:",sequence.seq,'\n')
         #write and export into .txt file
         result_file.write(f">{sequence.id} MW: {round(weight_aa/1000, 2)} KDa\nSeq: {sequence.seq}\n")
+        print(">", sequence.id,"MW:", round(weight_aa/1000, 2), "KDa")
+        print("Seq:",sequence.seq,'\n')
+
+print(
+"""
+#############################################
+# Made_by: Zubair Hasan                     #
+# Version: 1.0.0                            #
+# Program: Python 3                         #
+#############################################
+"""
+)
 
 filter_aa_seqs_by_mw(fasta_sequences, min_weight, max_weight)
