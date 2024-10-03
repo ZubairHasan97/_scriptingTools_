@@ -20,7 +20,6 @@ output_file = input("Enter the output file path (e.g., 'output.txt' or result.fa
 
 # Moved the file open statement to be *inside* the function
 def filter_aa_seqs_by_mw(sequences, min_wt, max_wt):
-  # Open the result file *inside* the function
   with open(output_file, "w") as result_file:
 
     for sequence in sequences:
