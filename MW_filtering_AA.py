@@ -15,12 +15,22 @@ def set_MW_range():
 
 min_weight, max_weight = set_MW_range()
 
+# Define the output file name and/or path
+output_file = input("Enter the output file path (e.g., 'output.txt' or result.fasta): ")
+
+# Moved the file open statement to be *inside* the function
 def filter_aa_seqs_by_mw(sequences, min_wt, max_wt):
-  for sequence in sequences:
-    # print(sequence.description)
-    weight_aa = molecular_weight(sequence.seq, seq_type='protein')
-    if min_wt <= weight_aa <= max_wt:
-      print(">", sequence.id,"MW:", round(weight_aa/1000, 2), "KDa")
-      print("Seq:",sequence.seq)
+  # Open the result file *inside* the function
+  with open(output_file, "w") as result_file:
+
+    for sequence in sequences:
+      # print(sequence.description)
+      weight_aa = molecular_weight(sequence.seq, seq_type='protein')
+
+      if min_wt <= weight_aa <= max_wt:
+        print(">", sequence.id,"MW:", round(weight_aa/1000, 2), "KDa")
+        print("Seq:",sequence.seq,'\n')
+        #write and export into .txt file
+        result_file.write(f">{sequence.id} MW: {round(weight_aa/1000, 2)} KDa\nSeq: {sequence.seq}\n")
 
 filter_aa_seqs_by_mw(fasta_sequences, min_weight, max_weight)
