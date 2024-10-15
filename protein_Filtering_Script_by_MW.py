@@ -1,4 +1,5 @@
 #import modules
+import os
 import time #for calculating process runtime
 import pandas as pd
 
@@ -12,7 +13,7 @@ print('''
 ###########  script_version: 1.0.0   ############
 #################################################
 ''')
-#input habdling
+#input handling
 file_path = input("Enter file path (e.g. home/content/sequence.csv): ")
 weight = int(input("Enter filtering Mass (e.g. 40000): "))
 output_file = input("Enter output file name (e.g. output.csv or result.txt):")
@@ -27,7 +28,7 @@ def filter_aaseq_MW(df_obj, weight_filter,output_name):
     #output screen and file handling
     print(f"Total Number of Filtered Proteins: {filtered_df.count()}\n")
     print("\nFirst few filtered protein IDs:\n", filtered_df.head())
-    filtered_df.to_csv(output_file, index = False)
+    filtered_df.to_csv(output_file, index = False, header = False)
     time.sleep(2)
     print(f"\n[-------File Exported!! ==>> {output_name}-------]\n")
 
@@ -49,7 +50,11 @@ else:
             break
     filter_aaseq_MW(seq_df, weight, output_file)
 
-
 terminating = time.process_time()
 
 print(f"processing_time: {terminating - initiating} ms")
+
+time.sleep(1)
+
+#invoking shell script to download fasta sequences 
+os.system("bash retrieveUniProtSeq.sh")
