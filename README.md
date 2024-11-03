@@ -1,6 +1,6 @@
 # sCripting_bioInfo
-> fun little projects in spear time
+>>> fun little projects at spare time
 
-> some automation scripts to streamline the tedious tasks
+>>> some automation scripts to streamline the tedious tasks
 
-> to be added more in the future
+>>> more will be added in the future
