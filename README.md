@@ -1,4 +1,4 @@
-# sCripting_bioInfo
+# scripting_Tools
 > fun little projects in spare time
 
 > some automation scripts to streamline the tedious tasks
