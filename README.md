@@ -1,4 +1,4 @@
-# scripting_Tools
+# scripting_utilities
 > fun little projects in spare time
 
 > some automation scripts to streamline the tedious tasks
